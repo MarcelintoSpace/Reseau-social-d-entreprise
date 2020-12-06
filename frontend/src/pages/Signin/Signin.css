@@ -1,0 +1,31 @@
+.Signin {
+  width: 100%;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SigninForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.SigninForm input,button {
+  margin: 10px;
+  width: 400px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.SigninForm button {
+  cursor: pointer;
+  background-color: #f05454;
+  box-shadow: 2px 2px 5px black;
+  color: white;
+}
+
+h1 {
+  font-family: sans-serif;
+}
