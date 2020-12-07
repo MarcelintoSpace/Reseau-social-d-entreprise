@@ -18,7 +18,7 @@ exports.signin = ("/user/signin", (req, res) => {
 //insértion dans la base de donnée
       db.query(
         "INSERT INTO Users (name, email, password) VALUES (?, ?, ?);",
-         [name, email, passeword],
+         [name, email, password],
          (err, results) => {
            console.log(err);
            res.send(results);
@@ -32,26 +32,29 @@ exports.signin = ("/user/signin", (req, res) => {
 
      //recherche de l'utilisateur dans la base de données
              db.query(
-                 "SELECT * FROM Users WHERE username = ?",
+                 "SELECT * FROM Users WHERE email = ?",
                  email,
                  (err, results) => {
               if (err) {
                 console.log(err);
               }
               if (results.length > 0) {
-                     if (password == results[0].password) {
+                     bcrypt.compare(password, results[0].password, (err, passwordValid) => {
+                      if (passwordValid) {
+                        res.json({
+                           loggedIn: true,
+                           email: email
+                         });
      //recherche si le mot de passe est correct
-                       res.json({
-                          loggedIn: true,
-                          email: email
-                        });
+
                  } else {
                    res.json({
      //si le mot de passe est incorrect = message d'erreur
                  loggedIn: false,
-                 message: "Email ou mot de passe incorrcet !",
+                 message: "Email ou mot de passe incorrect !",
                   });
                 }
+                });
          } else {
              res.json({
      //sinon l'utilisateur n'existe pas

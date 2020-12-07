@@ -5,9 +5,9 @@ import "./Home.css";
 //importation des images de Cloudinary
 import { Image } from "cloudinary-react";
 //importation du package "Axios"
-import Axios from "Axios";
+import Axios from "axios";
 //importation de l'icon de material-ui
-import ThumUpAltIcon from "@material-ui/icons/ThumUpAltIcon";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
 
 
@@ -48,8 +48,8 @@ return (
   <div className="Home">
     {uploads.map((val, key) => {
       return (
-{/* insertion image de Cloudinary */}
 <div className="Post">
+  {/* insertion image de Cloudinary */}
 <div className="Image">
   <Image cloudName="dmzcffyi1" publicId={val.image} />
 </div>
