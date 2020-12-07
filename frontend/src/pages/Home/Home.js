@@ -45,39 +45,39 @@ Axios.post("http://localhost:3001/upload/like", {
 
 //définition de Home
 return (
-    <div className="Home">
-      {uploads.map((val, key) => {
-        return (
-{/*insertion image de Cloudinary*/}
-          <div className="Post">
-            <div className="Image">
-              <Image cloudName="dmzcffyi1" publicId={val.image} />
-            </div>
+  <div className="Home">
+    {uploads.map((val, key) => {
+      return (
+{/* insertion image de Cloudinary */}
+<div className="Post">
+<div className="Image">
+  <Image cloudName="dmzcffyi1" publicId={val.image} />
+</div>
 {/*mise en forme du Post*/}
-            <div className="Content">
+          <div className="Content">
 {/*avec le titre du post*/}
-             <div className="title">
-               {" "}
+           <div className="title">
+             {" "}
 {/*avec l'auteur du post*/}
-               {val.title} / by @{val.author}
-             </div>
+             {val.title} / by @{val.author}
+           </div>
 {/* et avec la description*/}
-             <div className="description">{val.description}</div>
-           </div>
-{/*mise en place du Like et de son icon*/}
-           <div className="Engagement">
-             <ThumbUpAltIcon
-               id="likeButton"
-               onClick={() => {
-                 likePost(val.id, key);
-               }}
-             />
-             {val.likes}
-           </div>
+           <div className="description">{val.description}</div>
          </div>
-       );
-     })}
-   </div>
+{/*mise en place du Like et de son icon*/}
+         <div className="Engagement">
+           <ThumbUpAltIcon
+             id="likeButton"
+             onClick={() => {
+               likePost(val.id, key);
+             }}
+           />
+           {val.likes}
+         </div>
+       </div>
+     );
+   })}
+ </div>
  );
 }
 

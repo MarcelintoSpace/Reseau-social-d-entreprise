@@ -1,7 +1,7 @@
 //importation du package 'fs' de Node
 const fs = require('fs');
 //importation  de user.js du dossier models
-const Upload = require('../routes/Upload');
+const Upload = require('../routes/upload');
 //importation de la base de donnée
 const db = require('../config/database');
 
@@ -10,13 +10,14 @@ const db = require('../config/database');
 exports.createPost = (req, res) => {
 //définition des élément dans le frontend
   const title = req.body.title;
-  const description = req.body.descryption;
-  const imageUrl = req.body.imageUrl;
+  const content = req.body.content;
+  const image_Url = req.body.image_Url;
   const author = req.body.author;
+  const likes = req.body.likes;
 db.query(
 //insertion dans mysql
-    "INSERT INTO posts (title, content, imageUrl, author) VALUE (?, ?, ?, ?);",
-    [title, content, imageUrl, author],
+    "INSERT INTO posts (title, content, image_Url, author, likes) VALUE (?, ?, ?, ?, ?);",
+    [title, content, image_Url, author, likes],
 (err, results) => {
   console.log(err);
 //envoi des données
