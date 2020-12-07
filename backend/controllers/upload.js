@@ -11,13 +11,13 @@ exports.createPost = (req, res) => {
 //définition des élément dans le frontend
   const title = req.body.title;
   const content = req.body.content;
-  const image_Url = req.body.image_Url;
+  const image_url = req.body.image_url;
   const author = req.body.author;
   const likes = req.body.likes;
 db.query(
 //insertion dans mysql
-    "INSERT INTO posts (title, content, image_Url, author, likes) VALUE (?, ?, ?, ?, ?);",
-    [title, content, image_Url, author, likes],
+    "INSERT INTO posts (title, content, image_url, author, likes) VALUE (?, ?, ?, ?, ?);",
+    [title, content, image_url, author, likes],
 (err, results) => {
   console.log(err);
 //envoi des données
