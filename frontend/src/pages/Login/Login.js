@@ -4,9 +4,10 @@ import React, {useState} from 'react';
 import "./Login.css";
 //importation du package "Axios"
 import Axios from 'axios';
-
 //création des chemins avec react-router-dom
 import { useHistory } from "react-router-dom";
+//importation du package "dotenv"
+require('dotenv').config()
 
 function Login() {
 //création des hooks "usestate"
@@ -19,10 +20,23 @@ function Login() {
 //définition de "useHistory"
   let history = useHistory();
 
+  //vérification du token
+  Axios.post('http://localhost:3001/api/auth/login', {
+    headers: {
+      'Authorization': 'Bearer process.env.ENV_TOKEN',
+    }
+  })
+  .then((res) => {
+    console.log(res.data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+
 //création de la fonction login pour envoyer les infos au backend
   const login = () => {
     //appel du backend avec "Axios"
-    Axios.post("http://localhost:3001/user/login",
+    Axios.post("http://localhost:3001/api/auth/login",
 // création de l'objet body
     {
       email: email,
@@ -72,5 +86,5 @@ function Login() {
 );
 }
 
-//export de Signup
+//export de login
 export default Login;

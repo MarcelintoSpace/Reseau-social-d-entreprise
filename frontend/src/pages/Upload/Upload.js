@@ -33,7 +33,7 @@ function Upload() {
       const fileName = response.data.public_id;
 
 //appel du backend avec "Axios"
-Axios.post("http://localhost:3001/upload", {
+Axios.post("http://localhost:3001/api/upload", {
 //création du corp du post
   title: title,
   description: description,

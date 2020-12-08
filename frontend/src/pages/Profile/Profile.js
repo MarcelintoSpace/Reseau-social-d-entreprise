@@ -15,7 +15,7 @@ import "./Profile.css";
 //appel du localStorage
 useEffect(() => {
     Axios.get(
-      `http://localhost:3001/upload/byUser/${localStorage.getItem("username")}`
+      `http://localhost:3001/api/upload/byUser/${localStorage.getItem("username")}`
     ).then((response) => {
       setYourUploads(response.data);
     });
@@ -24,7 +24,7 @@ useEffect(() => {
 //définition du Profile
   return (
   <div className="Profile">
-    //insertion du nom de l'utilisateur
+    {/*insertion du nom de l'utilisateur*/}
         <h1>{localStorage.getItem("username")}</h1>
         {yourUploads.map((val, key) => {
           return (

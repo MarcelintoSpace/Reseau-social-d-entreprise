@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import './Signin.css';
 //importation du package "Axios"
 import Axios from 'axios';
+//importation du package "dotenv"
+require('dotenv').config()
 
 function Signin() {
 //création des "states"
@@ -11,10 +13,23 @@ function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+//vérification du token
+Axios.get('http://localhost:3001/api/auth/signin', {
+  headers: {
+    'Authorization': 'Bearer process.env.ENV_TOKEN',
+  }
+})
+.then((res) => {
+  console.log(res.data)
+})
+.catch((error) => {
+  console.error(error)
+})
+
 //création de la fonction register pour envoyer les infos au backend
   const signin = () => {
 //appel du backend avec "Axios"
-  Axios.post("http://localhost:3001/user/signin",
+  Axios.post("http://localhost:3001/api/auth/signin",
 // création de l'objet body
 {
   name: name,

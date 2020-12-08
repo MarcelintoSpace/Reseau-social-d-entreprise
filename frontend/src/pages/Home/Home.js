@@ -24,7 +24,7 @@ useEffect(() => {
 
 //connection au backend
 useEffect(() => {
-  Axios.get("http://localhost:3001/upload").then((response) => {
+  Axios.get("http://localhost:3001/api/upload").then((response) => {
     setUploads(response.data);
   });
 }, []);
@@ -35,7 +35,7 @@ const likePost = (id, key) => {
     tempLikes[key].likes = tempLikes[key].likes + 1;
 
 //association des like en fonction de l'utilisateur
-Axios.post("http://localhost:3001/upload/like", {
+Axios.post("http://localhost:3001/api/upload/like", {
   userLiking: localStorage.getItem("username"),
   postId: id,
 }).then((response) => {

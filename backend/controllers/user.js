@@ -37,7 +37,24 @@ exports.signin = ("/user/signin", (req, res) => {
                  (err, results) => {
               if (err) {
                 console.log(err);
+              } else {
+                //réponse de succès code 200
+        res.status(200).json({
+          //renvoi au frontend le userid et le token
+          userId: user._id,
+          //encodage avec la fonction 'sign'
+          token: jwt.sign({
+              userId: user._id
+            },
+            //clé secrete d'encodage
+            'u0JxYwok4U-Jn0`=(-69T5E=m!MkJ6', {
+            //délais d'expiration
+              expiresIn: '24h'
+            }
+          )
+        });
               }
+
               if (results.length > 0) {
                      bcrypt.compare(password, results[0].password, (err, passwordValid) => {
                       if (passwordValid) {
@@ -47,7 +64,9 @@ exports.signin = ("/user/signin", (req, res) => {
                          });
      //recherche si le mot de passe est correct
 
-                 } else {
+                 }
+
+                 else {
                    res.json({
      //si le mot de passe est incorrect = message d'erreur
                  loggedIn: false,

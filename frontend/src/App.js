@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from "./pages/Home/Home";
 //importation de la route Signin
 import Signin from "./pages/Signin/Signin";
-//importation de la route Signup
+//importation de la route login
 import Login from "./pages/Login/Login";
 //importation de la route Upload
 import Upload from "./pages/Upload/Upload";
