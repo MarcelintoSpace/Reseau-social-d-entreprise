@@ -20,7 +20,7 @@ useEffect(() => {
       setYourUploads(response.data);
     });
   });
-
+//git
 //définition du Profile
   return (
   <div className="Profile">

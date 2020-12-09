@@ -27,6 +27,7 @@ useEffect(() => {
         </>
       ) : (
         <>
+        {/*git*/}
         <a href="/signin">S'incrire</a>
         <a href="/login">Se Connecter</a>
         </>

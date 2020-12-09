@@ -14,7 +14,7 @@ import Upload from "./pages/Upload/Upload";
 import Navbar from "./components/Navbar";
 //importation du Profile
 import Profile from "./pages/Profile/Profile";
-
+//git
 
 function App() {
   return (

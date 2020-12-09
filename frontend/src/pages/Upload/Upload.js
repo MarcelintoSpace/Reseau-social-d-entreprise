@@ -24,7 +24,7 @@ function Upload() {
     const formData = new FormData();
     formData.append("file", image[0]);
     formData.append("upload_preset", "vgmulp38");
-
+//git
 //appel de cloudinary avec "Axios" pour récupérer les images
     Axios.post(
     `https://api.cloudinary.com/v1_1/dmzcffyi1/image/upload`,

@@ -25,7 +25,7 @@ Axios.get('http://localhost:3001/api/auth/signin', {
 .catch((error) => {
   console.error(error)
 })
-
+//git
 //création de la fonction register pour envoyer les infos au backend
   const signin = () => {
 //appel du backend avec "Axios"

@@ -28,7 +28,7 @@ useEffect(() => {
     setUploads(response.data);
   });
 }, []);
-
+//git
 //création des Likes
 const likePost = (id, key) => {
     var tempLikes = uploads;
