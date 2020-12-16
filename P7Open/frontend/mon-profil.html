@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <!DOCTYPE html>
+    <html lang="fr">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+          <link rel="shortcut icon" type="image/png" href="img/favicon-groupomania.png">
+          <title>Mon Profil</title>
+          <meta name="description" content="Profil de l'utilisateur">
+          <link rel="stylesheet" href="css/style.css">
+          <script src="https://kit.fontawesome.com/9376b337f5.js" crossorigin="anonymous"></script>
+      </head>
+        <body>
+        <header>
+            <nav class="flexbox">
+                <ul>
+                    <li class="logo__header">
+                        <a href="index.html" class="focus logo">
+                            <img src="img/logo-groupomania.png" alt="Logo de Groupomania" title="Groupomania"/>
+                        </a>
+                    </li>
+                    <li class="action__header">
+                        <a href="index.html" class="focus">Fil d'actu<i class="fas fa-home"></i></i></a>
+                        <a href="add-post.html" class="focus" id="newpost">Nouveau post<i class="fas fa-pen"></i></a>
+                        <a href="mon-profil.html" class="focus a__actif" id="profil">Profil<i class="fas fa-user"></i></a>
+                        <a href="index.html" class="a focus" id="logout">Se déconnecter<i class="fas fa-sign-out-alt"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            </header>
+        <main id="main">
+            <h1>Mon profil</h1>
+            <form name="profil">
+                <div class="souspartie">
+                    <label>Nom</label>
+                    <input id="lastName" class="focus" placeholder="Nom" name="last_name" required>
+                </div>
+                <div class="souspartie">
+                    <label>Prénom</label>
+                    <input id="firstName" placeholder="Prénom" name="first_name" required>
+                </div>
+                <div class="souspartie">
+                    <label>Email</label>
+                    <input id="email" placeholder="Email" type="email" name="email" required>
+                </div>
+                <button type="submit" id="modification" class="focus">Modifier mon profil</button>
+                <button  id="delete" class="focus">Supprimer mon compte</button>
+            </form>
+        </main>
+
+
+
+
+        <script src="node_modules/axios/dist/axios.min.js"></script>
+
+
+
+        
+        <script src="js/monprofil.js" type="application/javascript"></script>
+
+
+        <script src="js/logout.js" type="application/javascript"></script>
+    </body>
+</html>

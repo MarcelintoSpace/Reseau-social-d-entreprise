@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	  <link rel="shortcut icon" type="image/png" href="img/favicon-groupomania.png">
+	  <title>Page de connection</title>
+	  <meta name="description" content="Employé de l'entreprise Groupomania, connectez vous au réseau social de l'entreprise ">
+	  <link rel="stylesheet" href="css/style.css">
+	  <script src="https://kit.fontawesome.com/9376b337f5.js" crossorigin="anonymous"></script>
+  </head>
+	<body>
+    <header>
+			<nav class="flexbox">
+				<ul>
+					<li class="logo__header">
+						<a href="index.html" class="focus logo">
+							<img src="img/logo-groupomania.png" alt="Logo de Groupomania" title="Groupomania"/>
+						</a>
+          </li>
+					<li class="action__header">
+						<a href="login.html" class="focus a__actif">Se connecter<i class="fas fa-sign-in-alt"></i></a>
+						<a href="signup.html" class="focus">S'inscrire<i class="fas fa-user-plus"></i></a>
+					</li>
+				</ul>
+			</nav>
+    </header>
+    <main>
+      <h1>connexion :</h1>
+      <form method="post" name="connexion">
+        <div class="souspartie">
+          <label for="email">Email *</label>
+          <input type="email" class="form-control focus" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+          placeholder="Entrez une adresse mail valide" name="email">
+        </div>
+        <div class="souspartie">
+          <label for="password">Mot de passe *</label>
+          <input type="password" class="form-control focus" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+          placeholder="Renseignez votre mot de passe" name="password">
+        </div>
+        <button type="submit" id="connexion" class="focus">Se Connecter</button>
+        <button type="reset" class="focus">Réinitialiser</button>
+      </form>
+    </main>
+
+
+
+
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+
+
+
+    
+    <script src="js/login.js" type="application/javascript"></script>
+</body>
+</html>
