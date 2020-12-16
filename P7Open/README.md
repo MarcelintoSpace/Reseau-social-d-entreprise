@@ -23,12 +23,14 @@ npm  sequelize
 
 ```
 
-## Base de données
+## 2. Base de données
 ```
 utiliser Xamp ou Mamp
+sur le port 3306 pour mysql
+npm run init dans le Backend
 ```
 
-# Démarrage
+## 3. Démarrage
 ```
 nodemon server
 ```
