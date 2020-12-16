@@ -1,6 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+//Création du shéma de données de Like
   const Like = sequelize.define('Like', {
+//type attendu db: INTEGER, pour intéragir avec les autres tables
     messageId: {
       type: DataTypes.INTEGER,
       references: {
@@ -16,10 +18,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
   }, {});
-  Like.associate = function(models) {
 
+//assoiation aux Tables "Message" et "User"
+  Like.associate = function(models) {
     models.User.belongsToMany(models.Message, {
       through: models.Like,
+//utilisation de CASCADE pour la supression
       onDelete: 'CASCADE'
     });
 
@@ -27,5 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       through: models.Like,
     });
   };
+  //exportation du model
   return Like;
 };

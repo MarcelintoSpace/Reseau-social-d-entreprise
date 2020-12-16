@@ -1,4 +1,5 @@
 'use strict';
+//Création du shéma de données du User
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         firstname: DataTypes.STRING,
@@ -10,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
         isAdmin: DataTypes.BOOLEAN
     }, {});
 
+//assoiation à la Table Message
     User.associate = function (models) {
 
         models.User.hasMany(models.Message);
     };
 
+//exportation du model
     return User;
 };

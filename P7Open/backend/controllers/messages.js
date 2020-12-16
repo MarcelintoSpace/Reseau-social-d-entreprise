@@ -4,6 +4,8 @@ const jwtUtils = require('../utils/jwt.utils');
 const fs = require('fs').promises
 
 
+// CRUD
+
 module.exports = {
 //création d'un message
     createMessage: function (req, res) {
@@ -14,16 +16,17 @@ module.exports = {
         const content = req.body.content;
 
 
-        // si le champ title ou le champ content sont vide = erreur !
+// detection pour savoir si les champs sont remplis
         if (title == null || content == null) {
             return res.status(400).json({ 'error': 'missing parameters' });
         }
-
+//sélection du user grâce à "findByPk + id"
         models.User.findByPk(userId)
             .then(function (userFound) {
                 if (!userFound) {
                     return res.status(400).json({'error': 'user not found'});
                 }
+//création du message avec par defaut like = 0
                 models.Message.create({
                     title: title,
                     content: content,
@@ -45,17 +48,21 @@ module.exports = {
 
 //liste des messages
     listMessages: function (req, res) {
+//definition du userId avec demande d'autorisation (JWT)
         const userId = jwtUtils.getUserId(req.headers['authorization']);
-        const fields = req.query.fields; // permet de selectionner les colonnes qu'on veut afficher
-        const limit = parseInt(req.query.limit); // pour visualiser juste un nombre de messages
+//sélection des colonnes qu'on veut afficher
+        const fields = req.query.fields;
+//visualisalisation uniquement d'un nombre de message
+        const limit = parseInt(req.query.limit);
         const offset = parseInt(req.query.offset);
-        const order = req.query.order; // pour mettre les messages dans un ordre particulier
+//classer les message dans l'ordre
+        const order = req.query.order;
 
-        /**
-         * Récupération de l'utilisateur connecté afin de savoir si il est administrateur
-         */
+
+//Récupération de l'utilisateur connecté pour savoir si il est administrateur
         models.User.findByPk(userId).then((user) => {
             return models.Message.findAll({
+//mise en ordre descendant de tous les messages
                 order: [(order != null) ? order.split(':') : ['createdAt', 'DESC']],
                 include: [
                     {
@@ -69,8 +76,9 @@ module.exports = {
                 ]
             }).then((messages) => ({messages: messages, isAdmin: user.get('isAdmin')}))
         }).then(function ({messages, isAdmin}) {
-            //On ajoute un attribut modifiable si le message appartient à l'utilisateur ou à l'admin
+//ajout d'un attribut lorsque le message appartient à l'utilisateur ou à l'admin
             const m = messages
+//utilisation de spread             
                 .map(m => ({...m.dataValues, modifiable: isAdmin || m.dataValues.User.id === userId}))
             res.status(200).json(m)
         }).catch(function (err) {
@@ -124,7 +132,7 @@ module.exports = {
     deletePost: function (req, res) {
         const id = req.params.id
 
-//sélection du message grâce à "findByPk + key"
+//sélection du message grâce à "findByPk + id"
         models.Message.findByPk(id).then((message) => {
             const attachement = message.get('attachement');
             let response = null
