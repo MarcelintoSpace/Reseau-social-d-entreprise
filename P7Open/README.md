@@ -1,39 +1,9 @@
-## Les Étapes
+BIENVENUE sur le réseau social d'entreprise de Grouponmania ! 👌
 
-# 1. Installation
+Pour le serveur Frontend 🚀 la commande est : "npm install"
 
-## Dossier Frontend
-```
-npm install
-```
+Pour le Backend 🛸 la commande est : "npm install" + "nodemon server"
 
-## Dossier Backend
-```
-npm install
+Pour la Base de données 💾 la commande est : "npm run init" dans le Backend
 
-Dépendences
-npm  async
-npm  bcrypt
-npm  body-parser
-npm  express
-npm  jsonwebtoken
-npm  multer
-npm  mysql2
-npm  sequelize
-
-```
-
-## 2. Base de données
-```
-utiliser Xamp ou Mamp
-sur le port 3306 pour mysql
-npm run init dans le Backend
-```
-
-## 3. Démarrage
-```
-nodemon server
-```
-
-Le serveur est lancé sur le port 3001
-Lancer le fichier index.html dans le navigateur
+Bonne découverte du code réalisé en HTML5, MySQL, NODE.JS, EXPRESS
