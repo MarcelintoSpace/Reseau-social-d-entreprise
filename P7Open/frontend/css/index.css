@@ -190,6 +190,16 @@ main button {
   flex-direction: column;
 }
 
+.container-form {
+  margin: 10px;
+}
+
+.container-form label {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
 input {
 	outline: none;
 	border-radius: 4px;
