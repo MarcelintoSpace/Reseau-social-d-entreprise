@@ -6,13 +6,12 @@ const auth = require('../middleware/auth')
 //importation des controllers
 const likesCtrl = require('../controllers/likes');
 
-//Définition des Router
 exports.router = (function () {
     const likesRouter = express.Router();
 
-    // Likes routes
+//Définition du Router
     likesRouter.post('/messages/:messageId/action/like', auth, likesCtrl.likePost);
 
-
+//exportation des router
     return likesRouter;
 })();

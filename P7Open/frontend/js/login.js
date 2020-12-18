@@ -1,20 +1,20 @@
-const form = document.querySelector("form"); // Récupère le formulaire
+//récupération du formulaire
+const form = document.querySelector("form");
 
 
-
-
-//Validation de notre formulaire de Commande
+//Validation du login
 form.addEventListener('submit', (e) => {
-
+//mise en attente avec "preventDefault" avant la vérification au backend
     e.preventDefault()
     const  email = e.target.email.value;
     const password = e.target.password.value;
 
     axios.post('http://localhost:3001/users/login', { email, password }).then((resp) => {
         if (resp.data.status === 'OK') {
+//mise en localStorage du token et User et redirection vers la page d'accueil
             localStorage.setItem('api-token', resp.data.token);
             localStorage.setItem('user', JSON.stringify(resp.data.user));
-            window.location = `./index.html`; // Redirige vers la liste des posts
+            window.location = `./index.html`;
         }
     }, (err) => {
       alert("pour accéder veuillez d'abord vous enregistrer");
@@ -22,6 +22,7 @@ form.addEventListener('submit', (e) => {
     });
 });
 
+//vérification si les champs "input" sont bien remplis
 const inputs = document.querySelectorAll("input")
 
 const checkValidity = (input) => {

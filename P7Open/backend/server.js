@@ -1,6 +1,9 @@
+//Importation du package http de Node
 const http = require('http');
+//Importation de app.js
 const app = require('./app');
 
+//Renvoi un port valide, soit sous forme d'un numéro ou d'une chaine
 const normalizePort = val => {
   const port = parseInt(val, 10);
 
@@ -12,9 +15,13 @@ const normalizePort = val => {
   }
   return false;
 };
+
+//Définition du port 3001
 const port = normalizePort(process.env.PORT || '3001');
+//Définition du port pour app.js
 app.set('port', port);
 
+//Recherche des différentes erreurs avec 'errorHandler'
 const errorHandler = error => {
   if (error.syscall !== 'listen') {
     throw error;
@@ -35,8 +42,10 @@ const errorHandler = error => {
   }
 };
 
+//création du server
 const server = http.createServer(app);
 
+//Ecoute des erreurs
 server.on('error', errorHandler);
 server.on('listening', () => {
   const address = server.address();

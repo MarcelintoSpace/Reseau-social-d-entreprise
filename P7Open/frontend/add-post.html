@@ -2,50 +2,53 @@
 <html lang="fr">
     <!DOCTYPE html>
     <html lang="fr">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-          <link rel="shortcut icon" type="image/png" href="img/favicon-groupomania.png">
-          <title>Poster un nouveau post sur le réseau social de Groupomania</title>
-          <meta name="description" content="Employé de l'entreprise Groupomania, créer un nouveau post au réseau social de l'entreprise ">
-          <link rel="stylesheet" href="css/style.css">
-          <script src="https://kit.fontawesome.com/9376b337f5.js" crossorigin="anonymous"></script>
-      </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <title>Groupomania || Partagez un Post</title>
+        <meta name="description" content="Partagez un moment avec vos collaborateurs">
+        <link rel="stylesheet" href="css/index.css">
+          <script src="https://kit.fontawesome.com/72959b4925.js" crossorigin="anonymous"></script>
+    </head>
         <body>
         <header>
             <nav class="flexbox">
 				<ul>
 					<li class="logo__header">
-						<a href="index.html" class="focus logo">
-							<img src="img/logo-groupomania.png" alt="Logo de Groupomania" title="Groupomania"/>
-						</a>
-				    	</li>
-                        <li class="action__header">
-                            <a href="index.html" class="focus">Fil d'actu<i class="fas fa-home"></i></i></a>
-                            <a href="add-post.html" class="focus a__actif" id="newpost">Nouveau post<i class="fas fa-pen"></i></a>
-                            <a href="mon-profil.html" class="focus" id="profil">Profil<i class="fas fa-user"></i></a>
-                            <a href="index.html" class="a focus" id="logout">Se déconnecter<i class="fas fa-sign-out-alt"></i></a>
-                        </li>
+            <li class="logo__header">
+                <a href="index.html" class="focus logo">
+                    <img src="img/icon_light.png" alt="Logo"/>
+                </a>
+            </li>
+            <li class="action__header">
+                <a href="index.html" class="focus">Actualité<i class="far fa-newspaper"></i></a>
+                <a href="add-post.html" class="focus" id="newpost">Post<i class="fas fa-bullhorn"></i></a>
+                <a href="mon-profil.html" class="focus" id="profil">Profil<i class="fas fa-user-cog"></i></a>
+                <a href="index.html" class="a focus" id="logout">Déconnection<i class="fas fa-sign-out-alt"></i></a>
+            </li>
                     </ul>
                 </nav>
             </header>
         <main id="main">
-            <h1>nouveau post</h1>
             <form name="newpost" class="noborder">
-                <div class="souspartie">
+                <div class="champsInput">
                     <label for="title">Titre</label>
                     <input type="text" class="focus" id="title" name="title" placeholder="Titre">
                 </div>
-                <div class="souspartie">
+                <div class="champsInput">
                     <input type="file"  class="focus imagepost" id="media" name="media" accept="image/*">
                     <label for="media">Media</label>
                     <img id="preview" class="">
                 </div>
-                <div class="souspartie">
-                    <label for="content">Contenu de l'article</label>
+                <div class="champsInput">
+                    <label for="content">Description</label>
                     <textarea class="focus" id="content" name="content"></textarea>
                 </div>
-                <button type="submit" id="upload" class="focus">Publier le post</button>
+                <button type="submit" id="upload" class="focus">Je Partage...</button>
                 <button type="reset" class="focus">Réinitialiser</button>
             </form>
         </main>
@@ -57,7 +60,7 @@
 
 
 
-        
+
         <script src="js/addpost.js" type="application/javascript"></script>
 
 
