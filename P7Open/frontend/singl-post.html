@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        <title>Groupomania || Modifier un Post</title>
-        <meta name="description" content="Partagez un moment avec vos collaborateurs">
-        <link rel="stylesheet" href="css/index.css">
-          <script src="https://kit.fontawesome.com/72959b4925.js" crossorigin="anonymous"></script>
-    </head>
-        <body>
-        <header>
-            <nav class="flexbox">
-                <ul>
-                  <li class="logo__header">
-                      <a href="index.html" class="focus logo">
-                          <img src="img/icon_light.png" alt="Logo"/>
-                      </a>
-                  </li>
-                    <li class="action__header">
-                        <a href="index.html" class="focus">Actualité<i class="far fa-newspaper"></i></a>
-                        <a href="add-post.html" class="focus" id="newpost">Post<i class="fas fa-bullhorn"></i></a>
-                        <a href="mon-profil.html" class="focus" id="profil">Profil<i class="fas fa-user-cog"></i></a>
-                        <a href="index.html" class="a focus" id="logout">Déconnection<i class="fas fa-sign-out-alt"></i></a>
-                    </li>
-                </ul>
-            </nav>
-            </header>
-            <main>
-                 <form>
-             <p class="container-form">
-            <label>Titre</label>
-            <input id="title" name="title" placeholder="Titre" required>
 
-            <label for="post">Description</label>
-            <textarea id="post" name="post" id="post"></textarea>
-        </p>
-        <button id="delete-post" >Supprimer</button>
-        <button id="btn-post" type="submit">Modifier</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>Groupomania || Modifier un Post</title>
+  <meta name="description" content="Partagez un moment avec vos collaborateurs">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://kit.fontawesome.com/72959b4925.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Menu de navigation -->
+  <header>
+    <nav class="flexbox">
+      <ul>
+        <li class="logo__header">
+          <a href="index.html" class="focus logo">
+            <img src="img/icon_light.png" alt="Logo" />
+          </a>
+        </li>
+        <li class="action__header">
+          <a href="index.html" class="focus">Actualité<i class="far fa-newspaper"></i></a>
+          <a href="add-post.html" class="focus" id="newpost">Post<i class="fas fa-bullhorn"></i></a>
+          <a href="mon-profil.html" class="focus" id="profil">Profil<i class="fas fa-user-cog"></i></a>
+          <a href="index.html" class="a focus" id="logout">Déconnection<i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- corp du site -->
+  <main>
+    <!-- formulaire de modification et suppression du Post -->
+    <form>
+      <p class="container-form">
+        <label>Titre</label>
+        <input id="title" name="title" placeholder="Titre" required>
+
+        <label for="post">Description</label>
+        <textarea id="post" name="post" id="post"></textarea>
+      </p>
+      <button id="delete-post">Supprimer</button>
+      <button id="btn-post" type="submit">Modifier</button>
     </form>
-            </main>
+  </main>
 
+  <!-- script JS -->
+  <!-- connection avec le backend -->
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+  <!-- logout JS -->
+  <script src="js/singlpost.js" type="application/javascript"></script>
+</body>
 
-
-
-            <script src="node_modules/axios/dist/axios.min.js"></script>
-
-
-
-
-            <script src="js/singlpost.js" type="application/javascript"></script>
-        </body>
-    </html>
+</html>

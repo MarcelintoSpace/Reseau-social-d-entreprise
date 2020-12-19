@@ -177,10 +177,6 @@ main button {
 	border-style: none;
 }
 
-#adresseclient{
-	margin:8px;
-}
-
 .champsInput{
 	padding:8px;
   border-radius: 2px;
@@ -309,6 +305,8 @@ textarea{
 .post-contenu a {
 	color: black;
 }
+
+/*responsive*/
 
 @media (max-width: 856px) {
   body {

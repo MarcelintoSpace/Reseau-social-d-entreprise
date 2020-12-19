@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <title>Groupomania || Login</title>
-    <meta name="description" content="Inscrivez-vous sur le réseau social de Groupomania ">
-    <link rel="stylesheet" href="css/index.css">
-      <script src="https://kit.fontawesome.com/72959b4925.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>Groupomania || Login</title>
+  <meta name="description" content="Inscrivez-vous sur le réseau social de Groupomania ">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://kit.fontawesome.com/72959b4925.js" crossorigin="anonymous"></script>
 </head>
-	<body>
-    <header>
-			<nav class="flexbox">
-				<ul>
-          <li class="logo__header">
-              <a href="index.html" class="focus logo">
-                  <img src="img/icon_light.png" alt="Logo"/>
-              </a>
-          </li>
-					<li class="action__header">
-						<a href="login.html" class="focus a__actif">Se connecter<i class="fas fa-sign-in-alt"></i></a>
-						<a href="signup.html" class="focus">S'inscrire<i class="fas fa-user-tie"></i></a>
-					</li>
-				</ul>
-			</nav>
-    </header>
-    <main>
-      <form method="post" name="connexion">
-        <div class="champsInput">
-          <label for="email">Email</label>
-          <input type="email" class="form-control focus" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
-          placeholder="Entrez une adresse mail valide" name="email">
-        </div>
-        <div class="champsInput">
-          <label for="password">Mot de passe</label>
-          <input type="password" class="form-control focus" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
-          placeholder="Renseignez votre mot de passe" name="password">
-        </div>
-        <button type="reset" class="focus">Réinitialiser</button>
-        <button type="submit" id="connexion" class="focus">Se Connecter</button>
-      </form>
-    </main>
 
+<body>
+  <!-- Menu de navigation -->
+  <header>
+    <nav class="flexbox">
+      <ul>
+        <li class="logo__header">
+          <a href="index.html" class="focus logo">
+            <img src="img/icon_light.png" alt="Logo" />
+          </a>
+        </li>
+        <li class="action__header">
+          <a href="login.html" class="focus a__actif">Se connecter<i class="fas fa-sign-in-alt"></i></a>
+          <a href="signup.html" class="focus">S'inscrire<i class="fas fa-user-tie"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- corp du site -->
+  <main>
+    <!-- formulaire de login -->
+    <form method="post" name="connexion">
+      <div class="champsInput">
+        <label for="email">Email</label>
+        <input type="email" class="form-control focus" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder="Entrez une adresse mail valide" name="email">
+      </div>
+      <div class="champsInput">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control focus" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required placeholder="Renseignez votre mot de passe" name="password">
+      </div>
+      <button type="reset" class="focus">Réinitialiser</button>
+      <button type="submit" id="connexion" class="focus">Se Connecter</button>
+    </form>
+  </main>
 
-
-
-    <script src="node_modules/axios/dist/axios.min.js"></script>
-
-
-
-
-    <script src="js/login.js" type="application/javascript"></script>
+  <!-- script JS -->
+  <!-- connection avec le backend -->
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+  <!-- login JS-->
+  <script src="js/login.js" type="application/javascript"></script>
 </body>
+
 </html>
