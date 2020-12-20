@@ -18,13 +18,13 @@ module.exports = {
 
 // detection pour savoir si les champs sont remplis
         if (title == null || content == null) {
-            return res.status(400).json({ 'error': 'missing parameters' });
+            return res.status(400).json({ 'error': 'problème de paramètres' });
         }
 //sélection du user grâce à "findByPk + id"
         models.User.findByPk(userId)
             .then(function (userFound) {
                 if (!userFound) {
-                    return res.status(400).json({'error': 'user not found'});
+                    return res.status(400).json({'error': 'utilisateur non trouvé'});
                 }
 //création du message avec par defaut like = 0
                 models.Message.create({
@@ -37,12 +37,12 @@ module.exports = {
                .then((newMessage) => {
                         return res.status(201).json(newMessage);
                     }).catch(() => {
-                        return res.status(500).json({'error': 'cannot post message'});
+                        return res.status(500).json({'error': 'pas de message trouvé'});
                     })
 
             })
             .catch(function (err) {
-                return res.status(500).json({'error': 'unable to verify user'});
+                return res.status(500).json({'error': 'erreur serveur / impossible de trouvé le message'});
             });
     },
 
@@ -59,10 +59,10 @@ module.exports = {
         const order = req.query.order;
 
 
-//Récupération de l'utilisateur connecté pour savoir si il est administrateur
+//récupération des message en fonction de son id
         models.User.findByPk(userId).then((user) => {
             return models.Message.findAll({
-//mise en ordre descendant de tous les messages
+//mise en ordre descendant des messages
                 order: [(order != null) ? order.split(':') : ['createdAt', 'DESC']],
                 include: [
                     {
@@ -74,16 +74,17 @@ module.exports = {
                         as: 'Likes'
                     }
                 ]
+//savoir si il est administrateur
             }).then((messages) => ({messages: messages, isAdmin: user.get('isAdmin')}))
         }).then(function ({messages, isAdmin}) {
 //ajout d'un attribut lorsque le message appartient à l'utilisateur ou à l'admin
             const m = messages
-//utilisation de spread             
+//utilisation de spread
                 .map(m => ({...m.dataValues, modifiable: isAdmin || m.dataValues.User.id === userId}))
             res.status(200).json(m)
         }).catch(function (err) {
             console.log(err);
-            res.status(500).json({ 'error': 'invalid fields' });
+            res.status(500).json({ 'error': 'erreur serveur / champs invalide' });
         })
     },
 
@@ -93,11 +94,11 @@ module.exports = {
             if (message) {
                 res.status(200).json(message);
             } else {
-                res.status(404).json({ "error": "no message found" });
+                res.status(404).json({ "error": 'pas de message trouvé' });
             }
         }).catch(function (err) {
             console.log(err);
-            res.status(500).json({ 'error': 'invalid fields ' });
+            res.status(500).json({ 'error': 'erreur serveur / champs invalide' });
         })
     },
 
@@ -116,15 +117,15 @@ module.exports = {
                     console.log ('modification du message')
                     res.status(200).json(message);
                 }).catch(() => {
-                    res.status(500).json({ 'error': 'invalid fields' });
+                    res.status(500).json({ 'error': 'erreur serveur / champs invalide' });
                 })
 
             } else {
-                res.status(404).json({ 'error': "no message found" });
+                res.status(404).json({ 'error': 'pas de message trouvé' });
             }
         }).catch(function (err) {
             console.log(err);
-            res.status(500).json({ 'error': 'invalid fields' });
+            res.status(500).json({ 'error': 'erreur serveur / champs invalide' });
         })
     },
 

@@ -17,7 +17,7 @@ module.exports = {
         const messageId = parseInt(req.params.messageId);
 
         if (messageId <= 0) {
-            return res.status(400).json({'error': 'invalid parameters'});
+            return res.status(400).json({'error': 'problème de paramètres'});
         }
 //Récupération du message avec findOne
         models.Message.findOne({

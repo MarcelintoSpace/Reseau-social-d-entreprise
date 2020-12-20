@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   Like.associate = function(models) {
     models.User.belongsToMany(models.Message, {
       through: models.Like,
-//utilisation de CASCADE pour la supression
+//utilisation de CASCADE pour la suppression
       onDelete: 'CASCADE'
     });
 
