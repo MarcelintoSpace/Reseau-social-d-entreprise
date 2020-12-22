@@ -13,7 +13,6 @@ form.addEventListener('submit', (e) => {
         if (resp.data.status === 'OK') {
 //mise en localStorage du token et User et redirection vers la page d'accueil
             localStorage.setItem('api-token', resp.data.token);
-            localStorage.setItem('user', JSON.stringify(resp.data.user));
             window.location = `./index.html`;
         }
     }, (err) => {
